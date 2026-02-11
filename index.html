@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shashank Mohan Jain | Chief Architect, Office of the CTO - SAP</title>
+    <meta name="description" content="Chief Architect at SAP's Office of the CTO. 23+ years in AI/ML, Cloud Architecture & Enterprise Software. 45 patents, 8 books, 55+ open-source models.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a192f;
+            --navy-light: #112240;
+            --slate: #8892b0;
+            --light-slate: #a8b2d1;
+            --lightest-slate: #ccd6f6;
+            --white: #e6f1ff;
+            --accent: #64ffda;
+            --accent-dim: rgba(100, 255, 218, 0.1);
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a5568;
+            --text-muted: #718096;
+            --bg-primary: #fafbfc;
+            --bg-card: #ffffff;
+            --border: #e2e8f0;
+            --border-light: #edf2f7;
+            --brand: #0a192f;
+            --brand-accent: #1e3a5f;
+            --gold: #d4a853;
+            --gold-soft: rgba(212, 168, 83, 0.08);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ======== HERO ======== */
+        .hero {
+            background: var(--navy);
+            background: linear-gradient(160deg, #0a192f 0%, #1a2a4a 40%, #0f2847 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(100,255,218,0.03) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.3;
+        }
+
+        .hero-inner {
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 64px 48px 56px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            font-weight: 400;
+            color: var(--accent);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.4rem;
+            font-weight: 600;
+            color: var(--lightest-slate);
+            letter-spacing: -1px;
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+
+        .hero-title-role {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--slate);
+            margin-bottom: 6px;
+        }
+
+        .hero-title-role strong {
+            color: var(--light-slate);
+            font-weight: 500;
+        }
+
+        .hero-tagline {
+            font-size: 0.92rem;
+            color: var(--slate);
+            font-weight: 300;
+            max-width: 640px;
+            line-height: 1.7;
+            margin-top: 20px;
+        }
+
+        .hero-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 28px;
+        }
+
+        .hero-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            border: 1px solid rgba(100,255,218,0.2);
+            border-radius: 4px;
+            color: var(--accent);
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.25s ease;
+            background: rgba(100,255,218,0.03);
+        }
+
+        .hero-link:hover {
+            background: rgba(100,255,218,0.1);
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .hero-link svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        /* ======== STATS BAR ======== */
+        .stats-bar {
+            background: var(--navy-light);
+            border-bottom: 1px solid rgba(100,255,218,0.08);
+        }
+
+        .stats-inner {
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 0 48px;
+            display: flex;
+            justify-content: flex-start;
+            gap: 0;
+        }
+
+        .stat-item {
+            padding: 24px 36px 24px 0;
+            text-align: left;
+            border-right: 1px solid rgba(136,146,176,0.15);
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+            padding-right: 0;
+        }
+
+        .stat-item:first-child {
+            padding-left: 0;
+        }
+
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.68rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--slate);
+            margin-top: 4px;
+        }
+
+        /* ======== MAIN CONTENT ======== */
+        .main {
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 48px;
+            padding: 48px 0 64px;
+        }
+
+        /* ======== SECTION TITLES ======== */
+        .section {
+            margin-bottom: 44px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .section-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.55rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            white-space: nowrap;
+        }
+
+        .section-header .line {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* ======== EXPERIENCE ======== */
+        .exp-block {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 32px;
+            border-left: 2px solid var(--border);
+        }
+
+        .exp-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .exp-block::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 2px solid var(--gold);
+        }
+
+        .exp-block.current::before {
+            background: var(--gold);
+            box-shadow: 0 0 0 4px var(--gold-soft);
+        }
+
+        .exp-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 2px;
+        }
+
+        .exp-role {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .exp-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        .exp-org {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .exp-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .exp-list li {
+            position: relative;
+            padding-left: 16px;
+            margin-bottom: 7px;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        .exp-list li::before {
+            content: '\25B8';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 0.7rem;
+            top: 3px;
+        }
+
+        .exp-list li strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* ======== PROJECT CARDS ======== */
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            padding: 18px 22px;
+            margin-bottom: 12px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            border-color: var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .project-card h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .project-card p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .project-card .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .tech-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--gold);
+            background: var(--gold-soft);
+            padding: 2px 8px;
+            border-radius: 3px;
+            letter-spacing: 0.3px;
+        }
+
+        /* ======== SIDEBAR ======== */
+        .sidebar .section {
+            margin-bottom: 36px;
+        }
+
+        .sidebar .section-header h2 {
+            font-size: 1.25rem;
+        }
+
+        /* Skills */
+        .skill-group {
+            margin-bottom: 20px;
+        }
+
+        .skill-group-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .skill-tag {
+            font-size: 0.76rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background: #f0f2f5;
+            padding: 4px 12px;
+            border-radius: 3px;
+            border: 1px solid var(--border-light);
+            transition: all 0.2s;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--gold);
+            color: var(--text-primary);
+        }
+
+        /* Books list */
+        .book-item {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .book-item:last-child {
+            border-bottom: none;
+        }
+
+        .book-title {
+            font-size: 0.84rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        .book-pub {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* Awards */
+        .award-item {
+            display: flex;
+            gap: 12px;
+            align-items: baseline;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .award-item:last-child {
+            border-bottom: none;
+        }
+
+        .award-year {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--gold);
+            white-space: nowrap;
+            min-width: 36px;
+        }
+
+        .award-desc {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Community cards */
+        .community-item {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .community-item:last-child {
+            border-bottom: none;
+        }
+
+        .community-item h4 {
+            font-size: 0.86rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .community-item p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            margin-bottom: 4px;
+        }
+
+        .community-item a {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--brand-accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .community-item a:hover {
+            color: var(--gold);
+        }
+
+        /* ======== FOOTER ======== */
+        .footer {
+            background: var(--navy);
+            padding: 32px 48px;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 0.76rem;
+            color: var(--slate);
+        }
+
+        /* ======== PRINT ======== */
+        @media print {
+            body { background: #fff; font-size: 11pt; }
+            .hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .stats-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .resume-container { box-shadow: none; }
+            .hero-link { border-color: #ccc; color: #333; }
+            .footer { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .project-card:hover { box-shadow: none; }
+        }
+
+        /* ======== RESPONSIVE ======== */
+        @media (max-width: 860px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .hero-inner { padding: 40px 28px 36px; }
+            .hero h1 { font-size: 2.4rem; }
+            .stats-inner { padding: 0 28px; flex-wrap: wrap; }
+            .stat-item { padding: 16px 24px 16px 0; }
+            .main { padding: 0 28px; }
+            .footer { padding: 24px 28px; }
+        }
+
+        @media (max-width: 560px) {
+            .hero h1 { font-size: 1.9rem; }
+            .hero-links { gap: 6px; }
+            .hero-link { padding: 6px 12px; font-size: 0.68rem; }
+            .stats-inner { gap: 0; }
+            .stat-item { padding: 14px 16px 14px 0; }
+            .stat-num { font-size: 1.6rem; }
+            .exp-meta { flex-direction: column; gap: 2px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== HERO ==================== -->
+<header class="hero">
+    <div class="hero-inner">
+        <div class="hero-eyebrow">Architect &middot; Inventor &middot; Author</div>
+        <h1>Shashank Mohan Jain</h1>
+        <div class="hero-title-role">
+            <strong>Chief Architect</strong> &mdash; Office of the CTO, SAP
+        </div>
+        <p class="hero-tagline">
+            Defining SAP's AI-native Northstar architecture. 23+ years bridging foundational AI research
+            with production-grade enterprise systems. A Bayesian thinker who builds.
+        </p>
+        <nav class="hero-links">
+            <a class="hero-link" href="https://medium.com/@jain.sm" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42S14.2 15.54 14.2 12s1.51-6.42 3.38-6.42 3.38 2.88 3.38 6.42zM24 12c0 3.17-.53 5.75-1.19 5.75S21.62 15.17 21.62 12s.53-5.75 1.19-5.75S24 8.83 24 12z"/></svg>
+                Blog
+            </a>
+            <a class="hero-link" href="https://huggingface.co/smjain" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 3.46 1.76 6.508 4.433 8.292l.07-.09c-.3-.77-.31-1.63.06-2.37.53-1.06 1.74-1.58 2.74-1.21.12-.72.47-1.4 1.03-1.87-.45-.15-.87-.37-1.24-.66-1.07-.83-1.6-2.12-1.3-3.33.3-1.23 1.33-2.16 2.58-2.38 1.27-.22 2.56.28 3.3 1.37.28-.03.56-.04.85-.02.74-.93 1.95-1.4 3.1-1.18 1.19.23 2.14 1.13 2.43 2.3.3 1.18-.17 2.43-1.2 3.27-.36.29-.77.51-1.2.66.55.47.9 1.14 1.02 1.85 1.01-.36 2.11.16 2.63 1.22.37.74.35 1.6.06 2.37l.07.09A9.993 9.993 0 0022 12c0-5.523-4.477-10-10-10z"/></svg>
+                Hugging Face
+            </a>
+            <a class="hero-link" href="https://github.com/allthingssecurity" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                GitHub
+            </a>
+            <a class="hero-link" href="https://patents.justia.com/inventor/shashank-mohan-jain" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M12 1l3.09 6.26L22 8.27l-5 4.87 1.18 6.88L12 16.77l-6.18 3.25L7 13.14 2 8.27l6.91-1.01L12 1z"/></svg>
+                Patents
+            </a>
+            <a class="hero-link" href="https://www.udemy.com/course/generative-ai-probabilistic-perspective/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/></svg>
+                Udemy Course
+            </a>
+        </nav>
+    </div>
+</header>
+
+<!-- ==================== STATS BAR ==================== -->
+<div class="stats-bar">
+    <div class="stats-inner">
+        <div class="stat-item">
+            <div class="stat-num">23+</div>
+            <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">45</div>
+            <div class="stat-label">Patents</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">8</div>
+            <div class="stat-label">Published Books</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">55+</div>
+            <div class="stat-label">Open-Source Models</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">131+</div>
+            <div class="stat-label">Repositories</div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<div class="main">
+    <div class="content-grid">
+
+        <!-- ========== LEFT COLUMN ========== -->
+        <div class="primary">
+
+            <!-- Experience -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>Experience</h2>
+                    <div class="line"></div>
+                </div>
+
+                <div class="exp-block current">
+                    <div class="exp-meta">
+                        <span class="exp-role">Chief Architect, Office of the CTO</span>
+                        <span class="exp-date">AUG 2025 &mdash; PRESENT</span>
+                    </div>
+                    <div class="exp-org">SAP SE</div>
+                    <ul class="exp-list">
+                        <li>Defining the <strong>SAP AI-Native Northstar Architecture</strong> that shapes SAP's long-term product and platform vision across all business lines.</li>
+                        <li>Driving <strong>multi-modal AI capabilities on SAP Joule</strong>, integrating text, vision, speech, and agentic reasoning into core enterprise workflows.</li>
+                        <li>Collaborating directly with CTO leadership on strategic bets around foundation models, agent orchestration, and AI-first product design.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-block">
+                    <div class="exp-meta">
+                        <span class="exp-role">Chief Architect, SAP BTP (API Management)</span>
+                        <span class="exp-date">PRIOR &mdash; JUL 2025</span>
+                    </div>
+                    <div class="exp-org">SAP SE</div>
+                    <ul class="exp-list">
+                        <li>Led <strong>ML and AI capability development</strong> for the API Management portfolio &mdash; designing, optimizing, and operating private AI models.</li>
+                        <li>Built QA systems leveraging GPT-4 APIs and <strong>fine-tuned private LLMs</strong> deployed on SAP AI Core infrastructure.</li>
+                        <li>Owned end-to-end architecture of cloud backing services across private and public cloud on SAP BTP.</li>
+                        <li>Deep involvement in <strong>security architecture</strong> for services provisioned on BOSH and Kubernetes.</li>
+                        <li>Low-level <strong>performance engineering</strong> with eBPF and perf tooling across the full stack.</li>
+                        <li>Fine-tuned LLMs and VLMs for enterprise use cases using <strong>LoRA and Unsloth</strong>.</li>
+                        <li>Led ML projects for Autonomous Database and Predictive Auto Scaler.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Key Projects -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>Key Projects</h2>
+                    <div class="line"></div>
+                </div>
+
+                <div class="project-card">
+                    <h4>Anomaly Detection for API Management</h4>
+                    <p>Designed and deployed production anomaly detection using LSTM autoencoders, Prophet, and statistical methods. Applied Bayesian optimization for hyperparameter tuning and quantization/ONNX conversion for inference at scale.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">LSTM</span>
+                        <span class="tech-tag">Prophet</span>
+                        <span class="tech-tag">Bayesian Opt</span>
+                        <span class="tech-tag">ONNX</span>
+                        <span class="tech-tag">Quantization</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>Private LLM-based QA System</h4>
+                    <p>Built a privacy-preserving question answering system on SAP AI Core. Fine-tuned Flan-T5 models for domain-specific question understanding with published model on Hugging Face.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Flan-T5</span>
+                        <span class="tech-tag">SAP AI Core</span>
+                        <span class="tech-tag">Fine-tuning</span>
+                        <span class="tech-tag">LoRA</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>Multi-Modal Generative AI Prototypes</h4>
+                    <p>Developed prototypes spanning text, image, audio, video, and music generation. Fine-tuned Stable Diffusion and multiple LLM architectures. Optimization via TVM and ONNX frameworks.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Stable Diffusion</span>
+                        <span class="tech-tag">TVM</span>
+                        <span class="tech-tag">Multi-Modal</span>
+                        <span class="tech-tag">Text-to-Video</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>API Hub Conversational Agent</h4>
+                    <p>Architected a conversational chatbot on ChatGPT APIs with WhatsApp integration prototype for the API Hub platform.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">ChatGPT API</span>
+                        <span class="tech-tag">WhatsApp</span>
+                        <span class="tech-tag">Conversational AI</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>Cloud Backing Services &amp; IoT Connector</h4>
+                    <p>Architectural ownership from startup to growth phase of cloud team in India. Designed SAP IoT Connector 2.0 on Camel/OSGi runtime. Mentored teams on cloud-native delivery patterns.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">BOSH</span>
+                        <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">OSGi</span>
+                        <span class="tech-tag">Camel</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Publications -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>Publications</h2>
+                    <div class="line"></div>
+                </div>
+                <p style="font-size:0.86rem; color:var(--text-muted); margin-bottom:16px;">
+                    Author of 8 technical books published by <strong style="color:var(--text-secondary)">Springer / Apress</strong>
+                </p>
+                <div class="book-item">
+                    <div class="book-title">Introduction to Transformers for NLP &mdash; With Hugging Face</div>
+                    <div class="book-pub">Apress / Springer</div>
+                </div>
+                <div class="book-item">
+                    <div class="book-title">WebAssembly in the Cloud &mdash; A Basic Guide to Wasm-Based Cloud Computing</div>
+                    <div class="book-pub">Apress / Springer</div>
+                </div>
+                <div class="book-item">
+                    <div class="book-title">Linux Containers and Virtualization &mdash; A Kernel Perspective</div>
+                    <div class="book-pub">Apress / Springer</div>
+                </div>
+                <div class="book-item">
+                    <div class="book-title">Linux Containers and Virtualization &mdash; Utilizing Rust</div>
+                    <div class="book-pub">Apress / Springer</div>
+                </div>
+                <div class="book-item">
+                    <div class="book-title">A Brief Introduction to Web3 &mdash; Decentralized Fundamentals</div>
+                    <div class="book-pub">Apress / Springer</div>
+                </div>
+                <div class="book-item">
+                    <div class="book-title">Nature-Inspired Optimization Algorithms with Java</div>
+                    <div class="book-pub">Apress / Springer</div>
+                </div>
+                <div class="book-item" style="border-bottom:none;">
+                    <div class="book-pub" style="font-style:italic;">+ 2 additional titles (8 total)</div>
+                </div>
+            </div>
+
+        </div><!-- /primary -->
+
+        <!-- ========== RIGHT COLUMN (SIDEBAR) ========== -->
+        <div class="sidebar">
+
+            <!-- Skills -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>Skills</h2>
+                    <div class="line"></div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-label">Generative AI</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Transformers</span>
+                        <span class="skill-tag">LLMs / SLMs</span>
+                        <span class="skill-tag">Diffusion Models</span>
+                        <span class="skill-tag">VAEs</span>
+                        <span class="skill-tag">LoRA / QLoRA</span>
+                        <span class="skill-tag">Agentic AI</span>
+                        <span class="skill-tag">Multi-Modal</span>
+                        <span class="skill-tag">VLMs</span>
+                        <span class="skill-tag">Edge AI</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-label">Optimization</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Quantization</span>
+                        <span class="skill-tag">ONNX</span>
+                        <span class="skill-tag">TVM / MLC</span>
+                        <span class="skill-tag">Speculative Decoding</span>
+                        <span class="skill-tag">WebAssembly</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-label">Cloud Computing</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">BOSH</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">SAP BTP</span>
+                        <span class="skill-tag">SAP AI Core</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-label">Performance &amp; Security</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">eBPF</span>
+                        <span class="skill-tag">perf</span>
+                        <span class="skill-tag">Security Architecture</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-label">Languages &amp; Frameworks</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Hugging Face</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Awards -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>Awards</h2>
+                    <div class="line"></div>
+                </div>
+
+                <div class="award-item">
+                    <span class="award-year">2024</span>
+                    <span class="award-desc">SAP Labs Annual Award for Thought Leadership</span>
+                </div>
+                <div class="award-item">
+                    <span class="award-year">2018</span>
+                    <span class="award-desc">SAP Labs Annual Award for Product-Leading Innovation</span>
+                </div>
+                <div class="award-item">
+                    <span class="award-year">2018</span>
+                    <span class="award-desc">SAP Labs Innovation Award</span>
+                </div>
+                <div class="award-item">
+                    <span class="award-year"></span>
+                    <span class="award-desc">Finalist, SAP.iO &mdash; Autonomous Databases</span>
+                </div>
+                <div class="award-item">
+                    <span class="award-year"></span>
+                    <span class="award-desc">Multiple recognitions for innovation within SAP</span>
+                </div>
+            </div>
+
+            <!-- Open Source & Community -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>Community</h2>
+                    <div class="line"></div>
+                </div>
+
+                <div class="community-item">
+                    <h4>Hugging Face Contributor</h4>
+                    <p>55+ published models &mdash; fine-tuned LLMs, VLMs, SLMs, agentic reasoning models, function-calling adapters, and ColPali vision models.</p>
+                    <a href="https://huggingface.co/smjain" target="_blank" rel="noopener">huggingface.co/smjain</a>
+                </div>
+
+                <div class="community-item">
+                    <h4>Open Source &amp; Game Builder</h4>
+                    <p>131+ public repositories spanning AI agents, browser-based games, finance tools, and libraries including Anukriti deepfake framework.</p>
+                    <a href="https://github.com/allthingssecurity" target="_blank" rel="noopener">github.com/allthingssecurity</a>
+                </div>
+
+                <div class="community-item">
+                    <h4>Udemy Instructor</h4>
+                    <p>Generative AI: A Probabilistic Perspective &mdash; teaching generative AI through a Bayesian lens.</p>
+                    <a href="https://www.udemy.com/course/generative-ai-probabilistic-perspective/" target="_blank" rel="noopener">View Course</a>
+                </div>
+
+                <div class="community-item">
+                    <h4>Technical Blogger</h4>
+                    <p>Avid writer on AI, cloud computing, and emerging technologies.</p>
+                    <a href="https://medium.com/@jain.sm" target="_blank" rel="noopener">medium.com/@jain.sm</a>
+                </div>
+            </div>
+
+            <!-- Patents -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>Patents</h2>
+                    <div class="line"></div>
+                </div>
+                <p style="font-size:0.84rem; color:var(--text-secondary); line-height:1.65;">
+                    <strong>45</strong> granted and filed patents across cloud infrastructure, machine learning systems, serverless computing, and IoT.
+                </p>
+                <a href="https://patents.justia.com/inventor/shashank-mohan-jain" target="_blank" rel="noopener"
+                   style="font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--brand-accent); text-decoration:none; font-weight:500;">
+                    View full portfolio &rarr;
+                </a>
+            </div>
+
+        </div><!-- /sidebar -->
+
+    </div><!-- /content-grid -->
+</div><!-- /main -->
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+    <p>&copy; 2025 Shashank Mohan Jain. Built with purpose.</p>
+</footer>
+
+</body>
+</html>
